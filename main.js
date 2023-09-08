@@ -1,4 +1,6 @@
-let projects = document.querySelectorAll('#projects .project')
+const projectSection = document.querySelector('#projects');
+const aboutSection = document.querySelector('#about');
+const projects = document.querySelectorAll('#projects .project');
 let slider;
 let i = 0
 let count;
@@ -49,3 +51,16 @@ function projectDetails(project) {
 
 }
 
+window.onscroll = function () {
+    if (window.scrollY >= projectSection.offsetTop - 100) {
+        projects.forEach(element => {
+            element.classList.add('fade')
+        });
+    }
+
+    if (window.scrollY >= aboutSection.offsetTop - 100) {
+        document.querySelector('#about img').classList.add('fade');
+        document.querySelector('#about p').classList.add('fade')
+        document.querySelector('#about a').classList.add('fade')
+    }
+};
