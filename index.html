@@ -2,316 +2,515 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="icon" type="image/x-icon" href="imgs/M-Logo.png">
+
+    <link rel="stylesheet" href="Style/all.min.css" />
+    <link id="theme" rel="stylesheet" href="Style/main.css" />
+
     <title>Mo'men Walid</title>
-    <link rel="stylesheet" href="style/all.min.css">
-    <link rel="stylesheet" href="style/main.css">
-
-
-
 </head>
 
 <body>
 
-    <header>
+    <div class="body-overlay">
+        <video src="video/Water-Waves.mp4" muted autoplay loop></video>
+    </div>
+    <div class="overlay"></div>
 
-        <div class="container">
+    <section class="menu">
+        <div class="bar-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
 
-            <h1><span>Mo'men</span> <span>Walid</span></h1>
-
+        <div class="menu-content">
+            <i class="x-icon fa-solid fa-xmark"></i>
+            <h2>Menu</h2>
             <ul>
                 <li>
-                    <a href="#">Home</a>
+                    <a href="#home">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
                 </li>
                 <li>
-                    <a href="#about">About</a>
+                    <a href="#about">
+                        <i class="fa-solid fa-user"></i>
+                        About
+                    </a>
                 </li>
                 <li>
-                    <a href="#projects">Projects</a>
+                    <a href="#skills">
+                        <i class="fa-solid fa-icons"></i>
+                        Skills
+                    </a>
                 </li>
                 <li>
-                    <a href="#skills">Skills</a>
+                    <a href="#projects">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                        Projects
+                    </a>
                 </li>
                 <li>
-                    <a href="#contact">Contact</a>
+                    <a href="#contact">
+                        <i class="fa-solid fa-envelope"></i>
+                        Contact
+                    </a>
                 </li>
             </ul>
-        </div>
-    </header>
 
-    <section class="home">
-        <div class="container">
-            <div class="info">
-                <h1>
-                    I'm Mo'men Walid
-                    <br>
-                    A Front End Developer
-                </h1>
-                <div class="hire">
-                    <span>Hire me :</span>
-                    <div class="social">
-                        <a class="git" href="https://github.com/MomenWalid" target="_blank">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a class="linkedin" href="https://www.linkedin.com/in/momenwalid/" target="_blank">
-                            <i class="fa-brands fa-linkedin "></i>
-                        </a>
-                        <a class="mail" href="mailto:monosh89@gmail.com" target="_blank">
-                            <i class="fa-regular fa-envelope"></i>
-                        </a>
-                        <a class="whatsapp" href="https://api.whatsapp.com/send?phone=201117557743" target="_blank">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h1>About</h1>
-        <div class="container">
-            <img src="imgs/about.gif" alt="">
-            <p>
-                I have started this industry during the last few years by taking the Web Development Course. Then, I
-                decided to focus on Front-End Development. So, I increased my skills by learning HTML5, JavaScript
-                libraries and frameworks Like Angular. Also, CSS frameworks such as Bootstrap, and a CSS preprocessor
-                called SASS.
-            </p>
-        </div>
-        <a href="https://drive.google.com/file/d/1HOhFaUWRsn-fW1-cZ70COWjq3Xb10SMv/view?usp=sharing" target="_blank">See
-            the Resume</a>
-    </section>
-
-    <section id="projects">
-        <h1>Projects</h1>
-        <div class="container">
-
-            <a href="https://momenwalid.github.io/Active-Box/" target="_blank" class="project" id="a">
-                <div class="box">
-                    <img class="active" src="imgs/a1.png" alt="">
-                    <img src="imgs/a2.png" alt="">
-                    <img src="imgs/a3.jpg" alt="">
-                    <img src="imgs/a4.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Active Box</p>
-                    <span>HTML , CSS </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Bondi/" target="_blank" class="project" id="b">
-                <div class="box">
-                    <img class="active" src="imgs/b1.png" alt="">
-                    <img src="imgs/b2.png" alt="">
-                    <img src="imgs/b3.png" alt="">
-                    <img src="imgs/b4.png" alt="">
-                    <img src="imgs/b5.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Bondi</p>
-                    <span>HTML , CSS , Bootstrap </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Dashboard/" target="_blank" class="project" id="d">
-                <div class="box">
-                    <img class="active" src="imgs/d1.png" alt="">
-                    <img src="imgs/d2.png" alt="">
-                    <img src="imgs/d3.png" alt="">
-                    <img src="imgs/d4.png" alt="">
-                    <img src="imgs/d5.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Dashboard</p>
-                    <span>HTML , CSS </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Football/" target="_blank" class="project" id="f">
-                <div class="box">
-                    <img class="active" src="imgs/f1.png" alt="">
-                    <img src="imgs/f2.png" alt="">
-                    <img src="imgs/f3.png" alt="">
-                    <img src="imgs/f4.png" alt="">
-                    <img src="imgs/f5.png" alt="">
-                    <img src="imgs/f6.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Football</p>
-                    <span>HTML , CSS , JS</span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Memory-Game/" target="_blank" class="project" id="g">
-                <div class="box">
-                    <img class="active" src="imgs/g1.png" alt="">
-                    <img src="imgs/g2.png" alt="">
-                    <img src="imgs/g3.png" alt="">
-                    <img src="imgs/g4.png" alt="">
-                    <img src="imgs/g5.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Memory Game</p>
-                    <span>HTML , CSS , JS</span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/pro/" target="_blank" class="project" id="h">
-                <div class="box">
-                    <img class="active" src="imgs/h1.png" alt="">
-                    <img src="imgs/h2.png" alt="">
-                    <img src="imgs/h3.png" alt="">
-                    <img src="imgs/h4.png" alt="">
-                    <img src="imgs/h5.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : TAFL</p>
-                    <span>HTML , CSS , Bootstrap , JS </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Kasper/" target="_blank" class="project" id="k">
-                <div class="box">
-                    <img class="active" src="imgs/k1.png" alt="">
-                    <img src="imgs/k2.png" alt="">
-                    <img src="imgs/k3.png" alt="">
-                    <img src="imgs/k4.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Kasper</p>
-                    <span>HTML , CSS </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Special-Design/" target="_blank" class="project" id="s">
-                <div class="box">
-                    <img class="active" src="imgs/s1.png" alt="">
-                    <img src="imgs/s2.png" alt="">
-                    <img src="imgs/s3.png" alt="">
-                    <img src="imgs/s4.png" alt="">
-                    <img src="imgs/s5.png" alt="">
-                    <img src="imgs/s6.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Special Design</p>
-                    <span>HTML , CSS , JS </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Template/" target="_blank" class="project" id='t'>
-                <div class="box">
-                    <img class="active" src="imgs/t1.png" alt="">
-                    <img src="imgs/t2.png" alt="">
-                    <img src="imgs/t3.png" alt="">
-                    <img src="imgs/t4.png" alt="">
-                    <img src="imgs/t5.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Template</p>
-                    <span>HTML , CSS </span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/Udacity-Landing-Page/" target="_blank" class="project" id="u">
-                <div class="box">
-                    <img class="active" src="imgs/u1.png" alt="">
-                    <img src="imgs/u2.png" alt="">
-                    <img src="imgs/u3.png" alt="">
-                    <img src="imgs/u4.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : Udacity Landing Page</p>
-                    <span>HTML , CSS , JS</span>
-                </div>
-            </a>
-
-            <a href="https://momenwalid.github.io/E-Commerce/" target="_blank" class="project" id="e">
-                <div class="box">
-                    <img src="imgs/e1.png" class="active" alt="">
-                    <img src="imgs/e2.png" alt="">
-                    <img src="imgs/e3.png" alt="">
-                    <img src="imgs/e4.png" alt="">
-                    <img src="imgs/e5.png" alt="">
-                </div>
-                <div class="info">
-                    <p>Name : E-Commerce</p>
-                    <span>Angular</span>
-                </div>
-            </a>
-
-        </div>
-    </section>
-
-    <section id="skills">
-        <h1>Skills</h1>
-        <div class="container">
-
-            <div class="skill">
-                <img src="imgs/html5.png" alt="">
-                <p>HTML5</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/css3.png" alt="">
-                <p>CSS3</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/sass.png" alt="">
-                <p>SASS</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/bootstrap.png" alt="">
-                <p>Bootstrap</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/javascript.png" alt="">
-                <p>JavaScript</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/typescript.png" alt="">
-                <p>TypeScript</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/angularjs.png" alt="">
-                <p>Angular</p>
-            </div>
-
-            <div class="skill">
-                <img src="imgs/jquery.png" alt="">
-                <p>JQuery</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h1>Contact</h1>
-        <p>Feel free to message me using the contact form below</p>
-        <div class="container">
-
+            <h2>Social</h2>
             <div class="social">
-                <a class="linkedin" href="https://www.linkedin.com/in/momenwalid/" target="_blank">
-                    <i class="fa-brands fa-linkedin "></i>
-                </a>
-                <a class="mail" href="mailto:monosh89@gmail.com" target="_blank">
-                    <i class="fa-regular fa-envelope"></i>
-                </a>
-                <a class="whatsapp" href="https://api.whatsapp.com/send?phone=201117557743" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <a class="facebook" href="https://web.facebook.com/profile.php?id=100006257656704" target="_blank">
+                <a href="https://web.facebook.com/profile.php?id=100006257656704" target="_blank">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
+                <a href="https://api.whatsapp.com/send?phone=201117557743" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/momenwaled23/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
             </div>
-
         </div>
     </section>
+
+    <section class="settings">
+        <div class="gear-icon">
+            <i class="fa-solid fa-gear fa-spin"></i>
+        </div>
+
+        <div class="config">
+            <i class="x-icon fa-solid fa-xmark"></i>
+
+            <h1>Configuration</h1>
+
+            <div class="mood">
+                <h2>
+                    <i class="fa-solid fa-masks-theater"></i>
+                    Mood
+                </h2>
+
+                <p>
+                    <span class="move"></span>
+
+                    <i class="sun fa-solid fa-sun"></i>
+
+                    <i class="moon active fa-solid fa-moon"></i>
+
+                </p>
+
+            </div>
+
+            <div class="colors">
+                <h2>
+                    <i class="fa-solid fa-palette"></i>
+                    Colors
+                </h2>
+                <ul>
+                    <li class="active" data-color="#28e98c"></li>
+                    <li data-color="#e4af12"></li>
+                    <li data-color="#fe6f1d"></li>
+                    <li data-color="#14c5fd"></li>
+                    <li data-color="#c0c0c0"></li>
+                    <li data-color="#1338f3"></li>
+                    <li data-color="#f31313"></li>
+                    <li data-color="#ff99cc"></li>
+                    <li data-color="#009688"></li>
+                    <li data-color="#ffeb3b"></li>
+                </ul>
+            </div>
+
+            <div class="background-video">
+                <h2>
+                    <i class="fa-solid fa-film"></i>
+                    Background
+
+                </h2>
+                <ul>
+                    <li class="active" data-src="video/Water-Waves.mp4">Water Waves</li>
+                    <li data-src="video/3D-Abstract-Ball.mp4">3D Abstract Ball</li>
+                    <li data-src="video/world.mp4">World</li>
+                    <li data-src="video/earth.mp4"> Earth</li>
+                    <li data-src="video/plexus.mp4">Plexus</li>
+                    <li data-src="video/Simple-Strings.mp4">Simple Strings</li>
+                    <li data-src="">Solid Color</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="left-sidebar">
+        <div class="name">
+            <h2>Mo'men</h2>
+            <span>Front End Developer</span>
+        </div>
+
+        <div class="image">
+            <img loading="lazy" src="imgs/pic.jpg" alt="portfolio pic" />
+        </div>
+
+        <a class="email" href="mailto:monosh89@gmail.com"> monosh89@gmail.com </a>
+
+        <p class="address">Base in Cairo, Egypt</p>
+
+        <span class="copy"> &copy; 2023 Mo'men. All Right Reserved</span>
+
+        <ul class="links">
+            <li>
+                <a href="mailto:monosh89@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/momenwalid/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/MomenWalid" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://api.whatsapp.com/send?phone=201117557743" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </li>
+        </ul>
+
+        <a class="hire" href="mailto:monosh89@gmail.com">
+            <i class="fa-regular fa-envelope"></i>
+            Hire Me!
+        </a>
+    </section>
+
+    <main>
+        <section class="home" id="home">
+            <div class="section-head">
+                <i class="fa-solid fa-house"></i>
+                <span>Introduce</span>
+            </div>
+
+            <div class="container">
+
+                <h1>Say Hi from <span>Mo'men</span>, Font End Developer</h1>
+
+                <p>
+                    I code cleanly and beautifully simple things and i love what i do.
+                    Just simple like that!
+                </p>
+
+                <a href="#projects">
+                    <img loading="lazy" width="140px" id="round-text" src="imgs/round-text-w.png" alt="projects">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="about">
+
+            <div class="section-head">
+                <i class="fa-solid fa-user"></i>
+                <span>About</span>
+            </div>
+
+            <div class="container">
+
+                <p>
+                    I have started this industry during the last few years by taking the Web Development Course. Then, I
+                    decided to focus on Front-End Development. So, I increased my skills by learning HTML5, JavaScript
+                    libraries and frameworks Like Angular. Also, CSS frameworks such as Bootstrap, and a CSS
+                    preprocessor
+                    called SASS.
+                </p>
+
+                <a href="https://drive.google.com/file/d/1qWoFXyst-DQ6pF2vhaNneHwpExox7HNm/view?usp=drive_link"
+                    target="_blank">
+                    <i class="fa-regular fa-file-lines"></i>
+                    See The Resume
+                </a>
+
+            </div>
+
+        </section>
+
+        <section id="skills">
+
+            <div class="section-head">
+                <i class="fa-solid fa-icons"></i>
+                <span>Skills</span>
+            </div>
+
+            <div class="container">
+                <div class="skill">
+                    <img loading="lazy" src="imgs/html5.png" alt="html">
+                    <span>HTML</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/css3.png" alt="css">
+                    <span>CSS</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/bootstrap.png" alt="bootstrap">
+                    <span>Bootstrap</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/sass.png" alt="sass">
+                    <span>Sass</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/javascript.png" alt="javascript">
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/typescript.png" alt="typescript">
+                    <span>TypeScript</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/angularjs.png" alt="angular">
+                    <span>Angular</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="imgs/jquery.png" alt="jquery">
+                    <span>JQuery</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+
+            <div class="section-head">
+                <i class="fa-solid fa-grip-vertical"></i>
+                <span>Projects</span>
+            </div>
+
+            <div class="container">
+
+                <div class="project" id="e-commerce">
+                    <a href="https://momenwalid.github.io/E-Commerce/" target="_blank">
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/e-commerce1.png" alt="e1">
+                            <img loading="lazy" src="imgs/e-commerce2.png" alt="e2">
+                            <img loading="lazy" src="imgs/e-commerce3.png" alt="e3">
+                            <img loading="lazy" src="imgs/e-commerce4.png" alt="e4">
+                            <img loading="lazy" src="imgs/e-commerce5.png" alt="e5">
+
+                            <div class="info">
+                                <p>
+                                    Name: E-Commerce
+                                </p>
+                                <span>Angular</span>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="mcq">
+                    <a href="https://momenwalid.github.io/MCQ-Exam/">
+                        <div class="box">
+
+                            <img loading="lazy" class="active" src="imgs/MCQExam1.png" alt="mcq1">
+                            <img loading="lazy" src="imgs/MCQExam2.png" alt="mcq2">
+                            <img loading="lazy" src="imgs/MCQExam3.png" alt="mcq3">
+                            <img loading="lazy" src="imgs/MCQExam4.png" alt="mcq4">
+                            <img loading="lazy" src="imgs/MCQExam5.png" alt="mcq5">
+
+                            <div class="info">
+                                <p>
+                                    Name: MCQ Exam
+                                </p>
+                                <span>Angular</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="special">
+                    <a href="https://momenwalid.github.io/Special-Design/" target="_blank">
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/special-design1.png" alt="s1">
+                            <img loading="lazy" src="imgs/special-design2.png" alt="s2">
+                            <img loading="lazy" src="imgs/special-design3.png" alt="s3">
+                            <img loading="lazy" src="imgs/special-design4.png" alt="s4">
+                            <img loading="lazy" src="imgs/special-design5.png" alt="s5">
+                            <img loading="lazy" src="imgs/special-design6.png" alt="s6">
+
+                            <div class="info">
+                                <p>
+                                    Name: Special-Design
+                                </p>
+                                <span>HTML, CSS, JS</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="tafl">
+                    <a href="https://momenwalid.github.io/pro/" target="_blank">
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/tafl1.png" alt="t1">
+                            <img loading="lazy" src="imgs/tafl2.png" alt="t2">
+                            <img loading="lazy" src="imgs/tafl3.png" alt="t3">
+                            <img loading="lazy" src="imgs/tafl4.png" alt="t4">
+                            <img loading="lazy" src="imgs/tafl5.png" alt="t5">
+
+                            <div class="info">
+                                <p>Name : TAFL</p>
+                                <span>HTML , CSS , Bootstrap , JS </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="game">
+                    <a href="https://momenwalid.github.io/Memory-Game/" target="_blank">
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/memory-game1.png" alt="g1">
+                            <img loading="lazy" src="imgs/memory-game2.png" alt="g2">
+                            <img loading="lazy" src="imgs/memory-game3.png" alt="g3">
+                            <img loading="lazy" src="imgs/memory-game4.png" alt="g4">
+                            <img loading="lazy" src="imgs/memory-game5.png" alt="g5">
+
+                            <div class="info">
+                                <p>Name : Memory Game</p>
+                                <span>HTML , CSS , JS</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="football">
+                    <a href="https://momenwalid.github.io/Football/" target="_blank">
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/football1.png" alt="f1">
+                            <img loading="lazy" src="imgs/football2.png" alt="f2">
+                            <img loading="lazy" src="imgs/football3.png" alt="f3">
+                            <img loading="lazy" src="imgs/football4.png" alt="f4">
+                            <img loading="lazy" src="imgs/football5.png" alt="f5">
+                            <img loading="lazy" src="imgs/football6.png" alt="f6">
+
+                            <div class="info">
+                                <p>Name : Football</p>
+                                <span>HTML , CSS , JS</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="dashboard">
+                    <a href="https://momenwalid.github.io/Dashboard/" target="_blank">
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/dashboard1.png" alt="d1">
+                            <img loading="lazy" src="imgs/dashboard2.png" alt="d2">
+                            <img loading="lazy" src="imgs/dashboard3.png" alt="d3">
+                            <img loading="lazy" src="imgs/dashboard4.png" alt="d4">
+                            <img loading="lazy" src="imgs/dashboard5.png" alt="d5">
+
+                            <div class="info">
+                                <p>Name : Dashboard</p>
+                                <span>HTML , CSS </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="project" id="template">
+                    <a href="https://momenwalid.github.io/Template/" target="_blank">
+
+                        <div class="box">
+                            <img loading="lazy" class="active" src="imgs/template1.png" alt="t1">
+                            <img loading="lazy" src="imgs/template2.png" alt="t2">
+                            <img loading="lazy" src="imgs/template3.png" alt="t3">
+                            <img loading="lazy" src="imgs/template4.png" alt="t4">
+                            <img loading="lazy" src="imgs/template5.png" alt="t5">
+
+                            <div class="info">
+                                <p>Name : Template</p>
+                                <span>HTML , CSS </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="contact">
+            <div class="section-head">
+                <i class="fa-regular fa-handshake"></i>
+                <span>Contact</span>
+            </div>
+
+            <div class="container">
+
+                <p>Let's Work Together!</p>
+
+                <span class="email">monosh89@gmail.com</span>
+
+
+                <form action="">
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Youe Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Write Your Message"></textarea>
+                    </div>
+                    <button>Send Message</button>
+                </form>
+
+
+                <span class="msg">Feel free to message me using the contact form below</span>
+
+                <div class="social">
+                    <a class="linkedin" href="https://www.linkedin.com/in/momenwalid/" target="_blank">
+                        <i class="fa-brands fa-linkedin "></i>
+                    </a>
+                    <a class="mail" href="mailto:monosh89@gmail.com" target="_blank">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+                    <a class="whatsapp" href="https://api.whatsapp.com/send?phone=201117557743" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a class="facebook" href="https://web.facebook.com/profile.php?id=100006257656704" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/momenwaled23/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+
+            </div>
+
+
+
+            <!-- <form action="">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Youe Full Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Full Name</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Full Name</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+
+            </form> -->
+
+        </section>
+
+    </main>
 
     <script src="main.js"></script>
 </body>

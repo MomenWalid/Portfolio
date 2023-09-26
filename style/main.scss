@@ -8,302 +8,472 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 
 ul {
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
 }
 
 a {
     text-decoration: none;
 }
 
+// Strat Var
+$color: #fff;
+$background-color: #000;
+$border-color: #565656;
+$text-color: #999;
+$padding-section: 70px 40px;
+$transition: 0.3s;
+
+
+:root {
+    --main-color: #28e98c;
+}
+
+// End Var
+
+
 // Start Mixin
-@mixin flexCenter($gap: null, $wrap: nowrap) {
+
+@mixin sidebar($position) {
+    position: fixed;
+    top: 0;
+    #{$position}: -345px;
+    width: 345px;
+    height: 100%;
+    background-color: #191919;
+    color: $text-color;
+    z-index: 5;
+    transition: $transition;
+}
+
+@mixin x-icon($position) {
+    position: absolute;
+    top: 10px;
+    #{$position}: 10px;
+    font-size: 25px;
+    color: $text-color;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        color: #ff0000;
+    }
+}
+
+@mixin flex($content: center, $gap: 0, $wrap: nowrap) {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: $content;
     gap: $gap;
     flex-wrap: $wrap;
 }
 
-@mixin flexBetween {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+@mixin icon-link {
+    @include flex();
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #565565;
+    color: $text-color;
+    font-size: 20px;
+    transition: $transition;
+
+    &:hover {
+        border-color: var(--main-color);
+        color: var(--main-color);
+    }
+}
+
+
+@mixin animation($name) {
+    @keyframes #{$name} {
+        from {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
 @mixin responsive {
-    & {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    // Small 
-    @media (min-width: 768px) {
-        & {
-            width: 750px;
-        }
-    }
-
-    // Medium 
-    @media (min-width: 992px) {
-        & {
-            width: 970px;
-        }
-    }
-
-    // Large 
-    @media (min-width: 1200px) {
-        & {
-            width: 1170px;
-        }
-    }
-}
-
-@mixin fade($position) {
-    @keyframes fade#{$position} {
-        0% {
-            opacity: 0;
-
-            @if $position =='Up' {
-                transform: translateY(100%);
-            }
-
-            @else if $position =='Left' {
-                transform: translateX(100%);
-            }
-
-            @else if $position =='Right' {
-                transform: translateX(-100%);
-            }
-
-            @else if $position =='Bottom' {
-                transform: translateY(-100%);
-            }
-
-        }
-
-        100% {
-            opacity: 1;
-
-            @if $position =='Up' {
-                transform: translateY(0);
-            }
-
-            @else if $position =='Left' {
-                transform: translateX(0);
-            }
-
-            @else if $position =='Right' {
-                transform: translateX(0);
-            }
-
-            @else if $position =='Bottom' {
-                transform: translateY(0);
-            }
-        }
+    @media (max-width:991px) {
+        @content;
     }
 }
 
 
-// Global Variable
-$main-color: #2196f3;
-$alt-color: #1787e0;
+//End Mixin 
 
 
-// Start Header
 
-header {
+
+
+// Start Global Compnent
+
+.body-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 15px;
     width: 100%;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 3;
+    height: 100%;
+    background-color: $background-color;
+    visibility: visible;
+    z-index: -1;
+    opacity: 1;
 
-
-
-    .container {
-        @include responsive;
-        @include flexBetween;
-
-        @media (max-width:767px) {
-            & {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-    }
-
-    h1 {
-        display: flex;
-        align-items: center;
-        border: 1px solid #fff;
-        gap: 5px;
-        padding: 5px;
-        border-radius: 5px;
-        margin: 0;
-
-        span {
-            display: block;
-            overflow: hidden;
-            width: 30px;
-            transition: 0.3s;
-        }
-
-        &:hover span:first-child {
-            width: 114px;
-        }
-
-        &:hover span:last-child {
-            width: 82px;
-        }
-    }
-
-    ul {
-        display: flex;
-        align-items: center;
-
-        a {
-            display: block;
-            padding: 10px 20px;
-            font-size: 20px;
-            color: #fff;
-
-            &:hover {
-                color: $main-color;
-            }
-
-            @media (max-width:767px) {
-                & {
-                    padding: 7px;
-                    font-size: 18px;
-                }
-            }
-        }
-    }
-
-}
-
-// Start Home
-.home {
-    @include flexCenter;
-    position: relative;
-    color: #fff;
-    height: 100vh;
-
-
-
-    background-image: url('../imgs/pic.jpg');
-    background-size: cover;
-    background-position-y: 26%;
-    background-position-x: 50%;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+    video {
+        opacity: 0.3;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5)
+        object-fit: cover;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #565656;
+    opacity: 0.5;
+    z-index: 2;
+    visibility: hidden;
+    transition: 0.2s;
+}
+
+.section-head {
+    width: fit-content;
+    padding: 5px 15px;
+    border-radius: 40px;
+    border: 1px solid $border-color;
+    color: $color;
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 50px;
+    transition: $transition;
+
+
+    i {
+        margin-right: 10px;
     }
 
+    span {
+        text-transform: uppercase;
+    }
 
-    .container {
-        @include responsive;
+    &:hover {
+        border-color: var(--main-color);
+    }
+
+    &:hover i,
+    &:hover span {
+        color: var(--main-color);
+    }
+
+    &.active {
+        color: var(--main-color);
+        border-color: var(--main-color);
+    }
+}
+
+// End Global Compnent 
+
+
+// Start Menu
+
+.menu {
+    .bar-icon {
+        position: fixed;
+        top: 30px;
+        right: 15px;
+        border: 1px solid;
+        padding: 10px;
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        text-align: center;
+        font-size: 30px;
+        color: $color;
+        background-color: $background-color;
+        cursor: pointer;
+        transition: $transition;
         z-index: 1;
-        margin-top: 200px;
 
-        .info {
-            @media (min-width:991px) {
-                & {
-                    margin-top: 200px;
+        &:hover {
+            color: var(--main-color);
+            border-color: var(--main-color);
+        }
+    }
+
+    .menu-content {
+
+        @include sidebar('right');
+
+        &.show {
+            right: 0;
+        }
+
+        .x-icon {
+            @include x-icon('left');
+        }
+
+        h2 {
+            color: $text-color;
+            text-align: center;
+        }
+
+        ul {
+
+            padding: 25px 0;
+            margin-bottom: 30px;
+
+            li {
+                a {
+                    display: block;
+                    padding: 10px 0;
+                    width: 100px;
+                    margin: auto;
+                    color: $text-color;
+                    transition: $transition;
+
+                    &:hover {
+                        color: $color;
+                    }
+
+                    i {
+                        color: $text-color;
+                        margin-right: 10px;
+                        transition: $transition;
+                    }
+
+                    &:hover i {
+                        color: var(--main-color);
+                    }
                 }
             }
+        }
+
+        .social {
+            text-align: center;
+
+            a {
+                padding: 10px;
+                color: $text-color;
+                font-size: 20px;
+                transition: $transition;
+
+                &:hover {
+                    color: var(--main-color);
+                }
+            }
+        }
+    }
+}
+
+// End Menu
+
+
+// Start Settings
+
+.settings {
+    .gear-icon {
+        position: fixed;
+        top: 30px;
+        left: -3px;
+        color: $text-color;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        background: #1f1f1f;
+        border-radius: 5px;
+        z-index: 1;
+
+        @include flex();
+
+        &:hover {
+            color: $color;
+        }
+    }
+
+    .config {
+        @include sidebar('left');
+        padding: 10px 20px;
+        text-align: center;
+
+        &.show {
+            left: 0;
+        }
+
+        .x-icon {
+            @include x-icon('right');
         }
 
         h1 {
-            font-size: 50px;
-            font-weight: bold;
-            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
 
-            @media (max-width:767px) {
-                & {
-                    font-size: 32px
+        .mood {
+
+            p {
+                width: 150px;
+                @include flex(space-between);
+
+                margin: auto;
+                padding: 5px;
+                background: #333;
+                border-radius: 20px;
+                font-size: 23px;
+                position: relative;
+
+                .move {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 4px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: $background-color;
+                    z-index: 0;
+                    transition: $transition + 0.7s;
+
+                    &.left {
+                        right: 104px;
+                    }
+
+                    &.right {
+                        right: 4px;
+                    }
+
+                }
+
+                i {
+                    @include flex();
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                    z-index: 1;
+
+                    &.moon.active {
+                        color: $color;
+                        animation: rotate 1s linear;
+                    }
+
+                    &.sun.active {
+                        color: #ffa500;
+                        animation: rotate 1s linear;
+                    }
+
+                    @keyframes rotate {
+                        from {
+                            transform: rotate(0deg)
+                        }
+
+                        to {
+
+                            transform: rotate(360deg)
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+        .colors {
+
+            ul {
+                @include flex(center, 15px, wrap);
+                padding: 10px 35px;
+
+                li {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    background-color: #28e98c;
+                    border: 3px solid #191919;
+                    cursor: pointer;
+                    transition: $transition;
+
+                    &:hover,
+                    &.active {
+                        outline: 2px solid $color;
+                    }
+                }
+
+                li[data-color="#28e98c"] {
+                    background-color: #28e98c;
+                }
+
+                li[data-color="#e4af12"] {
+                    background-color: #e4af12;
+                }
+
+                li[data-color="#fe6f1d"] {
+                    background-color: #fe6f1d;
+                }
+
+                li[data-color="#14c5fd"] {
+                    background-color: #14c5fd;
+                }
+
+                li[data-color="#c0c0c0"] {
+                    background-color: #c0c0c0;
+                }
+
+                li[data-color="#1338f3"] {
+                    background-color: #1338f3;
+                }
+
+                li[data-color="#f31313"] {
+                    background-color: #f31313;
+                }
+
+                li[data-color="#ff99cc"] {
+                    background-color: #ff99cc;
+                }
+
+                li[data-color="#009688"] {
+                    background-color: #009688;
+                }
+
+                li[data-color="#ffeb3b"] {
+                    background-color: #ffeb3b;
                 }
             }
         }
 
-        .hire {
-            @include flexCenter(15px);
+        .background-video {
+            margin-top: 50px;
 
-            @media (max-width:767px) {
-                & {
-                    flex-direction: column;
-                }
-            }
+            ul {
+                @include flex(center, 10px, wrap);
+                font-size: 17px;
 
-            span {
-                font-size: 20px;
-                font-weight: bold;
-            }
+                li {
+                    cursor: pointer;
+                    padding: 10px;
+                    transition: $transition;
 
-            .social {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-
-                a {
-                    color: #fff;
-                    padding: 10px 5px;
-                    font-size: 30px;
-                    width: 50px;
-                    border-radius: 5px;
-                    @include flexCenter;
-                    transition: 0.3s;
-
-                    &.git {
-                        background-color: #333
-                    }
-
-                    &.git:hover {
-                        background-color: #fff;
-                        color: #333;
-                    }
-
-                    &.linkedin {
-                        background-color: #2563eb;
-                    }
-
-                    &.linkedin:hover {
-                        background-color: #fff;
-                        color: #2563eb;
-                    }
-
-                    &.mail {
-                        background-color: #6fc2b0;
-                    }
-
-                    &.mail:hover {
-                        background-color: #fff;
-                        color: #6fc2b0;
-                    }
-
-                    &.whatsapp {
-                        background-color: #075e54;
-                    }
-
-                    &.whatsapp:hover {
-                        color: #075e54;
-                        background-color: #fff;
+                    &:hover,
+                    &.active {
+                        color: var(--main-color);
+                        font-weight: 600;
                     }
                 }
             }
@@ -311,300 +481,521 @@ header {
     }
 }
 
-// Start About
-#about {
-    background-color: #fff;
-    padding: 50px 0;
+// End Settings
 
-    h1 {
-        color: $main-color;
-        font-size: 40px;
+// Start Left Sidebar
+
+.left-sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    border: 1px solid $border-color;
+    border-radius: 30px;
+    padding: 30px;
+    max-width: 350px;
+    color: $color;
+
+
+    @include responsive() {
+        position: relative;
+        left: 0;
+        max-width: 80%;
+        margin: auto;
+        padding: 30px 15px;
+
+        @include flex();
+        flex-direction: column;
+    }
+
+
+    .name {
+        @include flex(space-between, 0, wrap);
+
+        width: 100%;
+        margin-bottom: 30px;
+
+
+        h2 {
+            margin: 0;
+            position: relative;
+
+            &::before {
+                content: 'M';
+                position: absolute;
+                top: -10px;
+                right: -15px;
+                border: 1px solid;
+                border-radius: 50%;
+                font-size: 10px;
+                padding: 4px;
+                width: 10px;
+                height: 10px;
+
+                @include flex();
+            }
+        }
+
+        span {
+            color: $color;
+            font-size: 14px;
+        }
+    }
+
+    .image {
+        overflow: hidden;
+        width: 250px;
+
+        img {
+            max-width: 100%;
+            border-radius: 30px;
+            filter: grayscale(50%);
+        }
+    }
+
+    .email {
+        display: block;
+        text-align: center;
+        color: $color;
+        margin-top: 30px;
+        margin-bottom: 10px;
+
+        &:hover {
+            color: var(--main-color);
+        }
+    }
+
+
+    .address {
         text-align: center;
         margin: 0;
     }
 
+    .copy {
+        display: block;
+        color: $text-color;
+        margin-top: 25px;
+        font-size: 14px;
+    }
+
+    .links {
+        @include flex(space-evenly, 10px);
+        margin: 30px 0;
+
+        li {
+            a {
+                @include icon-link();
+
+            }
+        }
+    }
+
+    .hire {
+        display: block;
+        border: 2px solid var(--main-color);
+        border-radius: 40px;
+        padding: 15px 20px;
+        text-align: center;
+        background-color: var(--main-color);
+        color: $background-color;
+        text-transform: uppercase;
+        font-size: 17px;
+        width: 100%;
+
+        &:hover {
+            color: var(--main-color);
+            background-color: transparent;
+        }
+
+
+    }
+}
+
+// End Left Sidebar
+
+// Start main
+main {
+    @media (min-width:992px) {
+        width: calc(100% - 350px);
+        overflow: hidden;
+        margin-left: auto;
+    }
+}
+
+// Start home
+
+.home {
+    padding: $padding-section;
+    color: $color;
+
     .container {
-        @include responsive();
+        h1 {
+            font-size: 70px;
 
-        @include flexCenter(40px);
-
-        img {
-            width: 300px;
-            visibility: hidden;
-
-            &.fade {
-                visibility: visible;
-                animation: fadeLeft 1.5s;
+            @include responsive() {
+                font-size: 44px;
             }
 
-            @include fade('Left');
-
-
-            @media (max-width:767px) {
-                & {
-                    display: none;
-                }
+            span {
+                color: var(--main-color);
             }
         }
 
         p {
-            width: 450px;
-            font-size: 20px;
-            line-height: 1.5;
-            visibility: hidden;
+            color: $text-color;
+        }
 
-            &.fade {
-                visibility: visible;
-                animation: fadeRight 1.5s;
+        a {
+            position: relative;
+            margin: 100px 0 0 auto;
+            border: 4px solid $border-color;
+            border-radius: 50%;
+            padding: 15px;
+            width: 175px;
+            height: 175px;
+            transition: $transition;
+
+            @include flex();
+
+            @include responsive() {
+                margin: 40px auto 0 0;
             }
 
-            @include fade('Right');
+            &:hover {
+                border-color: var(--main-color);
+            }
 
-            @media (max-width:767px) {
-                & {
-                    width: fit-content;
+            &:hover i {
+                color: var(--main-color);
+            }
+
+            img {
+                animation: rotate 6s linear infinite;
+
+                @keyframes rotate {
+                    from {
+                        transform: rotate(0deg);
+                    }
+
+                    to {
+                        transform: rotate(360deg);
+
+                    }
                 }
             }
-        }
-    }
 
-    a {
-        display: block;
-        font-size: 20px;
-        padding: 10px 20px;
-        border-radius: 35px;
-        text-align: center;
-        margin: 20px auto 0;
-        background-color: $main-color;
-        width: fit-content;
-        color: #FFF;
-        transition: 0.3s;
-        visibility: hidden;
-
-        &.fade {
-            visibility: visible;
-            animation: fadeBottom 1.5s;
-        }
-
-        @include fade('Bottom');
-
-        &:hover {
-            background-color: $alt-color;
+            i {
+                color: $color;
+                font-size: 40px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: $transition;
+            }
         }
     }
 }
 
-// Start Projects
-#projects {
-    background-color: #eff7fa;
-    padding: 50px 0;
+// End Home
 
-    h1 {
-        color: $main-color;
-        font-size: 40px;
-        text-align: center;
-        margin: 0;
-        margin-bottom: 40px;
+// Sart About
+
+#about {
+    padding: $padding-section;
+    visibility: hidden;
+
+    &.active {
+        visibility: visible;
+        animation: fade 1s linear;
+
+        @include animation('fade');
     }
 
     .container {
-        @include responsive();
+        p {
+            color: $text-color;
+            max-width: 650px;
+            line-height: 2;
+        }
 
-        @include flexCenter(20px, wrap);
-
-        .project {
-            position: relative;
-            background-color: #fff;
-            width: 265px;
-            height: 265px;
+        a {
             display: block;
-            border-radius: 10px;
-            padding: 10px;
-            overflow: hidden;
-            visibility: hidden;
-            transition: 0.3s;
-
-            &.fade {
-                visibility: visible;
-                animation: fadeUp 1.5s;
-            }
-
-            @include fade('Up');
+            padding: 10px 20px;
+            background-color: var(--main-color);
+            border: 1px solid var(--main-color);
+            width: fit-content;
+            border-radius: 20px;
+            color: $background-color;
+            margin-top: 50px;
+            font-size: 18px;
+            transition: $transition;
 
             &:hover {
-                transform: scale(1.1);
+                background-color: transparent;
+                color: var(--main-color);
             }
 
-            &:hover img {
-                border-bottom: 1px solid #777;
+            i {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+// End About
+
+// Start Skills
+#skills {
+    padding: $padding-section;
+    visibility: hidden;
+
+    &.active {
+        visibility: visible;
+        animation: fadeUp 1s linear;
+
+        @include animation('fade');
+    }
+
+    .container {
+        @include flex(center, 25px, wrap);
+
+        .skill {
+            @include flex(space-between, 0);
+
+            flex-direction: column;
+            flex-basis: 20%;
+            border: 3px solid $border-color;
+            padding: 35px;
+            border-radius: 80px;
+            transition: $transition;
+
+
+            &:hover {
+                border-color: var(--main-color);
+            }
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+
+            span {
+                display: block;
+                text-align: center;
+                font-size: 18px;
+                color: var(--main-color);
+                margin-top: 20px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// End Skills
+
+// Start Projects
+#projects {
+    padding: $padding-section;
+    visibility: hidden;
+
+    &.active {
+        visibility: visible;
+        animation: fadeUp 1s linear;
+
+        @include animation('fadeUp');
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 30px;
+
+        .project {
+            padding: 10px;
+            border: 1px solid $border-color;
+            border-radius: 20px;
+            height: 300px;
+
+            &:hover {
+                border-color: var(--main-color);
             }
 
             .box {
                 position: relative;
+                height: 100%;
+                overflow: hidden;
 
                 img {
-                    width: 100%;
-                    height: 245px;
                     position: absolute;
                     top: 0;
                     left: 0;
+                    max-width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                     opacity: 0;
-                    transition: 0.5s;
+                    border-radius: 20px;
+                    transition: $transition;
 
                     &.active {
                         opacity: 1;
                     }
                 }
-            }
 
-            .info {
-                position: absolute;
-                bottom: 10px;
-                opacity: 0;
-                color: #777;
+                .info {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0, 0, 0, 0.7);
+                    width: 100%;
+                    height: 100%;
+                    color: $color;
+                    opacity: 0;
+                    transition: $transition;
 
-                span {
-                    font-size: 13px;
+                    @include flex();
+                    flex-direction: column;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
-            }
-
-            &:hover .info {
-                opacity: 1;
             }
         }
     }
 }
 
-// Start Skills
-#skills {
-    background-color: #fff;
-    padding: 50px 0;
-
-    h1 {
-        color: $main-color;
-        font-size: 40px;
-        text-align: center;
-        margin: 0;
-        margin-bottom: 40px;
-    }
-
-    .container {
-        @include responsive();
-        @include flexCenter(50px, wrap);
-
-        @media (max-width:767px) {
-            & {
-                gap: 30px;
-            }
-        }
-    }
-
-    .skill {
-        padding: 20px;
-        background-color: #fefefe;
-        border-radius: 10px;
-        text-align: center;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        transition: 0.3s;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
-        img {
-            width: 150px;
-
-            @media (max-width:767px) {
-                & {
-                    width: 100px;
-                }
-            }
-        }
-
-        p {
-            font-weight: bold;
-            font-size: 20px;
-            color: #777;
-        }
-    }
-}
+// End Projects
 
 // Start Contact
 #contact {
-    background-color: #eff7fa;
-    padding: 50px 0;
+    padding: $padding-section;
+    visibility: hidden;
 
-    h1 {
-        color: $main-color;
-        font-size: 40px;
-        text-align: center;
-        margin: 0;
-        margin-bottom: 40px;
-    }
+    &.active {
+        visibility: visible;
+        animation: fadeUp 1s linear;
 
-    p {
-        text-align: center;
-        font-size: 25px;
-        color: #777;
+        @include animation('fadeUp');
     }
 
     .container {
-        @include responsive();
 
-        .social {
-            @include flexCenter(25px, wrap);
-            padding: 15px;
+        p {
+            color: $color;
+            margin: 0;
+            font-size: 50px;
+            font-weight: 300;
+        }
 
-            a {
-                @include flexCenter;
-                color: #fff;
-                padding: 10px 5px;
-                font-size: 30px;
-                width: 50px;
-                border-radius: 5px;
-                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-                transition: 0.3s;
+        .email {
+            display: block;
+            color: var(--main-color);
+            margin: 20px 0 60px;
+            font-size: 24px;
+            font-weight: 300;
+        }
 
+        form {
+            margin-bottom: 30px;
 
-                &.linkedin {
-                    background-color: #2563eb;
+            .input-group {
+                margin-bottom: 20px;
+
+                label {
+                    display: block;
+                    color: $color;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    margin-bottom: 10px;
                 }
 
-                &.linkedin:hover {
-                    background-color: #fff;
-                    color: #2563eb;
+                input {
+                    display: block;
+                    background: transparent;
+                    border: 1px solid $border-color;
+                    border-radius: 10px;
+                    font-size: 20px;
+                    width: 50%;
+                    caret-color: var(--main-color);
+                    transition: $transition;
+                    padding: 10px 20px;
+
+                    @include responsive() {
+                        width: 100%;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        outline: 1px solid var(--main-color);
+                    }
                 }
 
-                &.mail {
-                    background-color: #6fc2b0;
+                textarea {
+                    resize: none;
+                    display: block;
+                    background: transparent;
+                    border: 1px solid $border-color;
+                    border-radius: 10px;
+                    font-size: 20px;
+                    width: 50%;
+                    caret-color: var(--main-color);
+                    transition: $transition;
+                    padding: 10px 20px;
+                    height: 150px;
+
+                    @include responsive() {
+                        width: 100%;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        outline: 1px solid var(--main-color);
+                    }
+                }
+            }
+
+            button {
+                padding: 10px 20px;
+                background-color: var(--main-color);
+                color: $background-color;
+                border: 1px solid var(--main-color);
+                border-radius: 20px;
+                font-size: 20px;
+                cursor: pointer;
+                transition: $transition;
+
+                @include responsive() {
+                    width: 100%;
                 }
 
-                &.mail:hover {
-                    background-color: #fff;
-                    color: #6fc2b0;
+                &:hover {
+                    background-color: transparent;
+                    color: var(--main-color);
                 }
-
-                &.whatsapp {
-                    background-color: #075e54;
-                }
-
-                &.whatsapp:hover {
-                    color: #075e54;
-                    background-color: #fff;
-                }
-
-
-                &.facebook {
-                    background-color: #097deb;
-                }
-
-                &.facebook:hover {
-                    background-color: #fff;
-                    color: #097deb;
-                }
-
             }
         }
 
+        .msg {
+            display: block;
+            color: $color;
+            font-weight: 300;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .social {
+            @include flex(center, 26px, wrap);
+
+            padding: 10px;
+
+
+            a {
+                @include icon-link();
+            }
+        }
     }
 }
+
+// End Contact
+
+// End main
