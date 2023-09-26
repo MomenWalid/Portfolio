@@ -55,11 +55,11 @@ mood.forEach(icon => {
             move.classList.add('left');
             sun.classList.add('active');
 
-            style.href = 'Style/light.css';
+            style.href = 'style/light.css';
 
             img.src = 'imgs/round-text-b.png';
 
-            localStorage.setItem('theme', 'Style/light.css');
+            localStorage.setItem('theme', 'style/light.css');
 
         }
         else if (e.target.classList.contains('moon')) {
@@ -69,11 +69,11 @@ mood.forEach(icon => {
             move.classList.add('right');
             moon.classList.add('active');
 
-            style.href = 'Style/main.css';
+            style.href = 'style/main.css';
 
             img.src = 'imgs/round-text-w.png';
 
-            localStorage.setItem('theme', 'Style/main.css');
+            localStorage.setItem('theme', 'style/main.css');
 
         }
     })
@@ -83,7 +83,7 @@ let theme = localStorage.getItem('theme');
 if (theme != null) {
     style.href = theme
 
-    if (theme == 'Style/light.css') {
+    if (theme == 'style/light.css') {
         moon.classList.remove('active');
         sun.classList.add('active');
         img.src = 'imgs/round-text-b.png';
