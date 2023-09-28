@@ -1,6 +1,25 @@
-const overlay = document.querySelector('.overlay')
-// Start Menu
 
+// Start Active Sections
+
+const sections = document.querySelectorAll('main section');
+
+
+window.onscroll = function () {
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+            document.querySelector(`#${section.id} .section-head`).classList.add('active')
+            document.getElementById(section.id).classList.add('active')
+        } else {
+            document.querySelector(`#${section.id} .section-head`).classList.remove('active')
+        }
+    })
+}
+
+
+// End Active Sections
+
+// Start Menu
+const overlay = document.querySelector('.overlay')
 const barIcon = document.querySelector('.menu .bar-icon')
 const menu = document.querySelector('.menu .menu-content')
 const menuXIcon = document.querySelector('.menu .x-icon')
@@ -157,8 +176,12 @@ if (src != null) {
     })
 }
 
-
 // End Settings
+
+
+
+
+
 
 
 // Start Projects Animation
@@ -209,26 +232,39 @@ function projectDetails(project) {
     }, 3000)
 }
 
+
 // End Projects Animation
 
 
 
-// Start Active Sections
-
-const sections = document.querySelectorAll('main section');
 
 
-window.onscroll = function () {
-    sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 100) {
-            document.querySelector(`#${section.id} .section-head`).classList.add('active')
-            document.getElementById(section.id).classList.add('active')
-        } else {
-            document.querySelector(`#${section.id} .section-head`).classList.remove('active')
-        }
-    })
-}
 
 
-// End Active Sections
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
